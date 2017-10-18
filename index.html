@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<body>
+日期选择
+<textarea id="J_input" name="t_time" cols="30" rows="3" ></textarea><br/>
+
+日期选择
+<input type="text" name="start_time" id="start_time" maxlength="10" size="10" required="required" />
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="kalendar.js"></script>
+<link rel="stylesheet" href="kalendar.css">
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$("#J_input").kalendar({opi:'#J_input'});
+
+		var tmr=new Date();
+		tmr.setDate(tmr.getDate()+1);
+		tmr = tmr.getFullYear()+'-'+(tmr.getMonth()+1)+'-'+tmr.getDate();
+		$("#start_time").kalendar({opi:'#start_time',mn:1,type:1,mindate:tmr});
+
+
+		
+		$('#J_input,#start_time').bind('keydown',function(e){
+			if(e.keyCode==46||e.keyCode==8){
+				$(this).val('');
+			}
+			return false;
+		});
+	});
+</script>
+
+
+</body>
+</html>
