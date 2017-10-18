@@ -22,7 +22,7 @@
 		$("#start_time").kalendar({opi:'#start_time',mn:1,type:1,mindate:tmr});
 
 
- 		<!-- 禁止在文本框内输入 -->		
+ 		// 禁止在文本框内输入
 		$('#J_input,#start_time').bind('keydown',function(e){
 			if(e.keyCode==46||e.keyCode==8){
 				$(this).val('');
